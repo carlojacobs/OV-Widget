@@ -159,7 +159,7 @@ if (isMedium) {
         rs.centerAlignContent()
         for (let j = 0; j < parts.length; j++) {
           const t = rs.addText((j > 0 ? " " : "") + parts[j].text)
-          t.font = Font.systemFont(13)
+          t.font = Font.systemFont(15)
           t.textColor = parts[j].color
         }
       }
@@ -272,7 +272,7 @@ if (isMedium) {
         rs.centerAlignContent()
         for (let i = 0; i < parts.length; i++) {
           const t = rs.addText((i > 0 ? " " : "") + parts[i].text)
-          t.font = Font.systemFont(12)
+          t.font = Font.systemFont(14)
           t.textColor = parts[i].color
         }
       }
