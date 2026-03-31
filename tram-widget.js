@@ -159,7 +159,7 @@ if (isMedium) {
         rs.centerAlignContent()
         for (let j = 0; j < parts.length; j++) {
           const t = rs.addText((j > 0 ? " " : "") + parts[j].text)
-          t.font = Font.systemFont(10)
+          t.font = Font.systemFont(13)
           t.textColor = parts[j].color
         }
       }
@@ -168,7 +168,7 @@ if (isMedium) {
 
   leftCol.addSpacer()
   addFooterRow(leftCol, 12)
-  leftCol.addSpacer(20)
+  leftCol.addSpacer(16)
 
   // ── Gap ───────────────────────────────────────────────────────────────────
   mainStack.addSpacer(16)
@@ -214,10 +214,11 @@ if (isMedium) {
         const arrow = depRow.addText("→")
         arrow.font = Font.boldSystemFont(18)
         arrow.textColor = new Color("#404060")
+        depRow.addSpacer()
         const utr = depRow.addDate(new Date(a.utrechtTs * 1000))
         utr.applyTimeStyle()
         utr.font = Font.boldSystemFont(18)
-        utr.textColor = new Color("#a0a0c0")
+        utr.textColor = Color.white()
       }
 
       const dest = trainEntry.addText(a.trip_headsign)
