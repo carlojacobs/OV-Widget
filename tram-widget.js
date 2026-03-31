@@ -125,7 +125,7 @@ if (isMedium) {
   // ── Left column: tram ──────────────────────────────────────────────────────
   const leftCol = mainStack.addStack()
   leftCol.layoutVertically()
-  leftCol.addSpacer(34)
+  leftCol.addSpacer(16)
 
   addSectionHeader(leftCol, "tram.fill", "Tram", "12", 11)
 
@@ -176,7 +176,7 @@ if (isMedium) {
   // ── Right column: trains ───────────────────────────────────────────────────
   const rightCol = mainStack.addStack()
   rightCol.layoutVertically()
-  rightCol.addSpacer(34)
+  rightCol.addSpacer(16)
 
   addSectionHeader(rightCol, "train.side.front.car", "Amstel → Utrecht", null, 11)
 
@@ -221,9 +221,6 @@ if (isMedium) {
         utr.textColor = Color.white()
       }
 
-      const dest = trainEntry.addText(a.trip_headsign)
-      dest.font = Font.systemFont(11)
-      dest.textColor = new Color("#6060a0")
     }
     rightCol.addSpacer()
   }
