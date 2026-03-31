@@ -3,6 +3,7 @@
 
 const TEST_MEDIUM = false
 const isMedium = config.widgetFamily === "medium" || (config.runsInApp && TEST_MEDIUM)
+const isAccessory = config.widgetFamily === "accessoryRectangular"
 
 const TRAM_STOP_ID = "3258885"
 const TRAIN_STOP_ID = "2992155"
@@ -50,7 +51,7 @@ try {
   tramArrivals = results[0].arrivals
     .map(a => ({ ...a, secsAway: a.ts - now }))
     .filter(a => a.secsAway > -60)
-    .slice(0, 3)
+    .slice(0, isAccessory ? 2 : 3)
 
   if (isMedium && results[1]) {
     const filtered = results[1].arrivals
@@ -232,6 +233,24 @@ if (isMedium) {
 
   // ── Right margin ──────────────────────────────────────────────────────────
   mainStack.addSpacer(16)
+
+} else if (isAccessory) {
+  // ── Lockscreen: single countdown ────────────────────────────────────────────
+  widget.setPadding(0, 0, 0, 0)
+  widget.addSpacer()
+  if (fetchError || tramArrivals.length === 0) {
+    const t = widget.addText("—")
+    t.textColor = Color.white()
+    t.font = Font.boldSystemFont(32)
+    t.centerAlignText()
+  } else {
+    const cd = widget.addDate(new Date(tramArrivals[0].ts * 1000))
+    cd.applyTimerStyle()
+    cd.font = Font.boldSystemFont(32)
+    cd.textColor = Color.white()
+    cd.centerAlignText()
+  }
+  widget.addSpacer()
 
 } else {
   // ── Small: tram only ────────────────────────────────────────────────────────
