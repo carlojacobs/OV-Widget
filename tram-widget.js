@@ -210,11 +210,11 @@ if (isMedium) {
       }
 
       if (a.utrechtTs) {
-        depRow.addSpacer()
+        depRow.addSpacer(6)
         const arrow = depRow.addText("→")
         arrow.font = Font.boldSystemFont(18)
         arrow.textColor = new Color("#404060")
-        depRow.addSpacer()
+        depRow.addSpacer(6)
         const utr = depRow.addDate(new Date(a.utrechtTs * 1000))
         utr.applyTimeStyle()
         utr.font = Font.boldSystemFont(18)
