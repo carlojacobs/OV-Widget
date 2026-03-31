@@ -225,7 +225,7 @@ if (isMedium) {
     rightCol.addSpacer()
   }
 
-  rightCol.addSpacer(20)
+  rightCol.addSpacer(31)
 
   // ── Right margin ──────────────────────────────────────────────────────────
   mainStack.addSpacer(16)
