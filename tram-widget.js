@@ -136,8 +136,9 @@ if (isMedium) {
     msg.textColor = fetchError ? new Color("#ff6b6b") : Color.white()
     leftCol.addSpacer()
   } else {
-    for (const a of tramArrivals) {
-      leftCol.addSpacer()
+    leftCol.addSpacer(8)
+    for (let i = 0; i < tramArrivals.length; i++) {
+      const a = tramArrivals[i]
       const row = leftCol.addStack()
       row.layoutHorizontally()
       row.centerAlignContent()
@@ -163,6 +164,7 @@ if (isMedium) {
           t.textColor = parts[j].color
         }
       }
+      if (i < tramArrivals.length - 1) leftCol.addSpacer(8)
     }
   }
 
@@ -187,9 +189,9 @@ if (isMedium) {
     n.font = Font.systemFont(11)
     rightCol.addSpacer()
   } else {
-    for (const a of trainArrivals) {
-      rightCol.addSpacer()
-
+    rightCol.addSpacer(8)
+    for (let i = 0; i < trainArrivals.length; i++) {
+      const a = trainArrivals[i]
       const trainEntry = rightCol.addStack()
       trainEntry.layoutVertically()
 
@@ -221,6 +223,7 @@ if (isMedium) {
         utr.textColor = Color.white()
       }
 
+      if (i < trainArrivals.length - 1) rightCol.addSpacer(8)
     }
     rightCol.addSpacer()
   }
@@ -248,8 +251,9 @@ if (isMedium) {
     n.font = Font.systemFont(14)
     widget.addSpacer()
   } else {
-    for (const a of tramArrivals) {
-      widget.addSpacer()
+    widget.addSpacer(8)
+    for (let i = 0; i < tramArrivals.length; i++) {
+      const a = tramArrivals[i]
       const row = widget.addStack()
       row.layoutHorizontally()
       row.centerAlignContent()
@@ -270,12 +274,13 @@ if (isMedium) {
         const rs = row.addStack()
         rs.layoutHorizontally()
         rs.centerAlignContent()
-        for (let i = 0; i < parts.length; i++) {
-          const t = rs.addText((i > 0 ? " " : "") + parts[i].text)
+        for (let j = 0; j < parts.length; j++) {
+          const t = rs.addText((j > 0 ? " " : "") + parts[j].text)
           t.font = Font.systemFont(14)
-          t.textColor = parts[i].color
+          t.textColor = parts[j].color
         }
       }
+      if (i < tramArrivals.length - 1) widget.addSpacer(8)
     }
   }
 
